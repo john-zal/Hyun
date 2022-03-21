@@ -1,0 +1,26 @@
+class Solution {
+    public String solution(int n) {
+    	StringBuilder answer = new StringBuilder();
+        //String answer = "";     
+        int temp = 0;
+        while(n != 0) {
+        	temp =  n % 3;  //15 % 3
+        	n /=3;      	
+        	if(temp == 0) //0으로 나누어 떨어지면
+        	{
+        		n -= 1; //
+        		//answer = "4"+answer;
+        		//answer.append("4");
+        		answer.insert(0, 4);
+        	}
+        	else {
+        		//answer = Integer.toString(temp) + answer;
+        		//answer.append(temp);
+        		//answer.append(answer);
+        		answer.insert(0,temp);
+        	}
+        }
+        //return answer.reverse().toString();
+        return answer.toString();
+    }    	
+}
