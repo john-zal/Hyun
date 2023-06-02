@@ -4,10 +4,11 @@
 
 using namespace std;
 
+
 int solution(vector<int> number) {
     int answer = 0;
     int arrSize = (int)number.size();
-    sort(number.begin(), number.end());
+    sort(number.begin(), number.end(), [](int a, int b) -> bool {return a < b; });
     
     vector<bool> vecBool(arrSize, false);
     vecBool[arrSize - 1] = true;
