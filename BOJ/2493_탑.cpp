@@ -1,28 +1,27 @@
 #include <iostream>
 #include <stack>
-
+#include <utility>
 using namespace std;
+
 int main()
 {
-	int N = 0;
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
 
+	int N;
+	stack<pair<int, int>> stack; //넘버, 인덱스
+	stack.push({ 100000001, 0 });
 	cin >> N;
+	int num;
 
-	//높이, 인덱스
-	stack<pair<int, int>> stack;
-
-	for (int i = 0; i < N; i++)
+	for (int i = 1; i <= N; i++)
 	{
-		int height = 0;
-		cin >> height;
-		
-		if((N > 0) && (i == 0))
-			stack.push({ height, i + 1 });
+		cin >> num;
+		//새 탑이 기존 탑보다 클때 기존 탑을 없애버린다.
+		while (stack.top().first < num)
+			stack.pop();
 
-
-		//더 낮은 애들은 사용하지 않는다.
-
+		cout << stack.top().second << " ";
+		stack.push({ num,i });
 	}
-
-	return 0;
 }
